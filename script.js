@@ -1,17 +1,15 @@
 const postTitle = document.getElementById('postTitle');
 const postContent = document.querySelector('.form-control[name="postContent"]');
+
 const postAuthor = document.querySelector('.form-control[name="postAuthor"]');
 const postImage = document.querySelector('.form-control[name="postImg"]');
-
 const postList = document.getElementById('post-list');
-// console.log(newPost);
 
 const button = document.querySelector(".btn-primary");
 const form = document.querySelector("form");
 
 const today = new Date();
-const cardFooter = document.querySelector('.card-footer');
-cardFooter.textContent = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+const cardFooter = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
 
 button.addEventListener('click',  ($event) => {
     $event.preventDefault();
@@ -31,44 +29,21 @@ button.addEventListener('click',  ($event) => {
     </div>
 `;
 
-
     postList.insertAdjacentHTML('afterbegin', newPost);
     form.reset();
-})
-const formCard = document.getElementById("form-card");
+});
 
+const formCard = document.getElementById("form-card");
 const showForm = document.getElementById('show-form');
 
-// showForm.addEventListener('click' = () => {
-//     if (formCard.style.visibility == "visible") {
-//         showForm.textContent = "Add a new post";
-//         formCard.style.display = "block";
-//     } else {
-//         // formCard.style.display = "none";
-//     }
-    
-//     formCard.classList.remove('card-body');
-// }); 
+showForm.addEventListener('click',  () => {
+    console.log(showForm)
+    if (showForm.textContent === "Hide form") {
+        formCard.style.display = 'none';
+        showForm.textContent = "Add a post";
+    } else  {
+        formCard.style.display = 'block';
+        showForm.textContent = "Hide form";
+    } 
 
-
-// const postList = document.getElementById('post-list');
-// const card = document.createElement('div');
-// card.classList.add('card');
-// const newImage = document.createElement('img');
-// newImage.classList.add('card-img-top');
-// newImage.alt = "Card image cap";
-// newImage.src = 'https://picsum.photos/500/200';
-// const newCardBody = document.createElement('div');
-// newCardBody.classList.add('card-body');
-// const newCardTitle = document.createElement('h5');
-// newCardTitle.classList.add('card-title');
-// const newCardText = document.createElement('p');
-// newCardText.classList.add('card-text');
-// newCardBody.appendChild(newCardTitle);
-// newCardBody.appendChild(newCardText);
-// card.appendChild(newImage);
-// card.appendChild(newCardBody);
-// postList.appendChild(card);
-
-// console.log(postList);
- 
+});
