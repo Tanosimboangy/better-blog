@@ -16,7 +16,7 @@ button.addEventListener('click',  ($event) => {
     <div class="card">
         <img class="card-img-top" src="${postImage.value}" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title">${postTitle.value} <small>by ${postAuthor.value}<small></h5>
+            <h5 class="card-title">${postTitle.value} <small> by ${postAuthor.value} </small> </h5>
             <p class="card-text">${postContent.value}</p>
             <button type="button" class="btn btn-sm btn-light btn-delete">
             Delete entry</button>
@@ -32,7 +32,10 @@ button.addEventListener('click',  ($event) => {
     form.reset();
 })
 
-
+const showForm = document.getElementById('show-form');
+// showForm.addEventListener ('click' = () => {
+//     showForm.textContent = "";
+// }); 
 
 
 // const postList = document.getElementById('post-list');
