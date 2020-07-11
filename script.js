@@ -9,6 +9,10 @@ const postList = document.getElementById('post-list');
 const button = document.querySelector(".btn-primary");
 const form = document.querySelector("form");
 
+const today = new Date();
+const cardFooter = document.querySelector('.card-footer');
+cardFooter.textContent = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+
 button.addEventListener('click',  ($event) => {
     $event.preventDefault();
 
@@ -22,7 +26,7 @@ button.addEventListener('click',  ($event) => {
             Delete entry</button>
         </div>
         <div  class="card-footer text-muted">
-            10/07/2020
+        ${cardFooter}
         </div>
     </div>
 `;
@@ -31,10 +35,19 @@ button.addEventListener('click',  ($event) => {
     postList.insertAdjacentHTML('afterbegin', newPost);
     form.reset();
 })
+const formCard = document.getElementById("form-card");
 
 const showForm = document.getElementById('show-form');
-// showForm.addEventListener ('click' = () => {
-//     showForm.textContent = "";
+
+// showForm.addEventListener('click' = () => {
+//     if (formCard.style.visibility == "visible") {
+//         showForm.textContent = "Add a new post";
+//         formCard.style.display = "block";
+//     } else {
+//         // formCard.style.display = "none";
+//     }
+    
+//     formCard.classList.remove('card-body');
 // }); 
 
 
