@@ -1,19 +1,17 @@
 const postTitle = document.getElementById('postTitle');
 const postContent = document.querySelector('.form-control[name="postContent"]');
-
 const postAuthor = document.querySelector('.form-control[name="postAuthor"]');
 const postImage = document.querySelector('.form-control[name="postImg"]');
 const postList = document.getElementById('post-list');
-
 const button = document.querySelector(".btn-primary");
 const form = document.querySelector("form");
-
 const today = new Date();
 const cardFooter = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+const card = document.getElementsByClassName('card');
+const warning = document.getElementsByClassName('invalid-feedback');
 
 button.addEventListener('click',  ($event) => {
     $event.preventDefault();
-
     const newPost = `
     <div class="card">
         <img class="card-img-top" src="${postImage.value}" alt="Card image cap">
@@ -28,7 +26,12 @@ button.addEventListener('click',  ($event) => {
         </div>
     </div>
 `;
-
+    if (postContent.value.split().length < 20) {
+        postContent.classList.add('is-invalid');
+        warning.classList.add('invalid-feedback');
+    } else {
+        postContent.classList.remove('is-invalid');
+    }
     postList.insertAdjacentHTML('afterbegin', newPost);
     form.reset();
 });
